@@ -1,32 +1,25 @@
 /*==================== MENU SHOW Y HIDDEN ====================*/
-const nav__menu = document.getElementById('nav-menu'),
-navToggle = document.getElementById('nav-toggle'),
-navClose = document.getElementById('nav-close')
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("nav-menu_visible");
+
+  if (navMenu.classList.contains("nav-menu_visible")) {
+    navToggle.setAttribute("aria-label", "Cerrar menú");
+  } else {
+    navToggle.setAttribute("aria-label", "Abrir menú");
+  }
+});
 
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
-if (navToggle){
-    navToggle.addEventListener('click', () =>{
-        nav__menu.classList.add('show-menu')
-    })
-}
+
 
 /*===== MENU HIDDEN =====*/
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        nav__menu.classList.remove('show-menu')
-    })
-}
 
 /*==================== REMOVE MENU MOBILE ====================*/
-const navLink = document.querySelectorAll('.nav__link')
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== ACCORDION SKILLS ====================*/
 
